@@ -15,6 +15,7 @@ client.on("messageCreate", async (message) => {
 
     const command = client.commands.get(cmd.toLowerCase()) || client.commands.find(c => c.aliases?.includes(cmd.toLowerCase()));
 
+    const usage = command.usage ? command.usage : "No Usage Provided."
     if (!command) return;
     await command.run(client, message, args);
 });
